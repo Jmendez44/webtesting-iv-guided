@@ -1,5 +1,12 @@
 // Update with your config settings.
 
+localPgConnection = {
+  host: 'localhost',
+  database: 'hobbits',
+  user: 'jay',
+  password: 'pass'
+}
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -27,4 +34,14 @@ module.exports = {
       directory: './data/seeds',
     },
   },
+  production: {
+    client: 'pg',
+    connection: prodDbConnection,
+    migrations: {
+      directory:'./data/migration',
+    },
+    seed: {
+      directory: './data/seeds'
+    }
+  }
 };
